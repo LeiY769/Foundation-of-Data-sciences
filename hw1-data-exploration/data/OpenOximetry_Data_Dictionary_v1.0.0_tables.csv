@@ -1,0 +1,35 @@
+﻿Table Name,Description
+Note,* indicates plan for future release
+patient,"
+This file contains information about individual patients/participants that are taking part in the study. Basic, relatively immutable information is included in this file, with each participant having one row in the participants file. 
+
+Participants are given a unique participant ID so that they can be identified between encounters (i.e. each participant may have many encounters). Additionally, information about the site that is conducting the study is included in this file so that participants can be selected and stratified by site if desired during analysis.
+"
+encounter,"
+This file contains information from each controlled desaturation “breathe down” encounter. Each row of the encounter table includes information from a single encounter (so examining a single encounter requires looking at only one row of the encounter table; this is not the case for other files). Each encounter corresponds to one participant (i.e. each row has one participant ID). 
+
+Information about which device is used on which finger, finger diameter, and measurements made during the encounter are included in this file. Qualitative skin color measurements are also included here (e.g. Monk scale). Dates in the encounter table are offset into the future by a random offset (set per participant) while attempting to preserve seasonality to de-identify the dataset.This preserves intra-participant chronology while inter-participant chronology is obscured.'
+"
+pulseoximeter,"
+This table contains pulse oximeter saturation readings for the different test devices. Each row contains one saturation reading from one pulse oximeter, corresponding to a specific encounter (desaturation session or clinical encounter, identified by encounter_id), and a specific blood gas within that encounter (identified by sample_number).
+"
+spectrophotometer,"
+This table contains quantitative skin color data. Each row represents one spectrophotometer measurement at a single anatomic site. Spectrophotometer measurements are typically taken three times at each anatomic site, and repeated at each encounter. They are linked to the encounter via encounter_id, and to the patient via patient_id.
+"
+bloodgas,"
+The blood gas table contains blood gas measurements and data obtained at the same time as the blood gas. Each row represents the results from a single blood gas sample and clinical data from that time. These samples are linked to pulse oximeter readings and other data during the same encounter via 'sample_number' and 'encounter_id'.
+"
+device,"
+The device table contains descriptive data about the pulse oximeters. Each row contains data for one pulse oximeter model and includes a unique device ID number, as well as the make, model, and light transmission mode of the oximeter.
+"
+base waveforms,"
+Continuous data contained here includes ECG, oxygen and carbon dioxide in mmHg, respiratory rate, and blood pressure in mmHg in WFDB format. 
+
+NB: if data is available from a continuous source, it is not entered in the 'bloodgas' table, but may be linked to a specific blood gas sample via 'encounter_id', and 'sample_number' or date and time.
+"
+2hz,"
+Reference oximeter readings (2Hz, file suffix _2hz): Continuous data from devices used as known reference oximeters during a encounter are included as csv files. These files contain SpO2, HR, and pulsatility index (PI) recorded at 2Hz. The calculated saturation (ScalcO2) is the instantaneously estimated SaO2 based on ETO2. Blood sample draws are labeled and correspond to the ‘sample’ number in other tables. 
+"
+ppg,"
+Raw PPG (86hz, file suffix _ppg): Raw PPG is included for certain encounters, and PPG files are named according to their corresponding encounter. However in this version of the database, they are not time-synchronized to the other waveform data from the same encounter.
+"

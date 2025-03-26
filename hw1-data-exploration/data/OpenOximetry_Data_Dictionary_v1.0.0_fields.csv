@@ -1,0 +1,177 @@
+﻿table,column name,type,description
+patient,patient_id,char,Uniquely generated patient ID (persists between encounters for recurring patients). We suggest hashing the concatenation of site ID + local patient identifier + random generated number so that IDs are not duplicated between collaborators
+patient,assigned_sex,char,Male/Female
+patient,race,char,"Self-described race:
+African-American
+Asian
+Caucasian
+Other/Mutiethnic"
+patient,ethnicity,char,"1, Not Hispanic 
+2, Hispanic"
+patient,site_id,char,String identifier for the research group contributing the dataset
+patient,*pmhx_htn,bool,History of hypertension
+patient,*pmhx_dm,bool,History of diabetes mellitus
+patient,*pmhx_chd,bool,History of congenital heart disease
+patient,*pmhx_chd_text,char,Congenital heart disease details
+patient,*pmhx_smoking,bool,History of smoking
+encounter,patient_id,char,Uniquely generated patient ID (persists between encounters for recurring patients). We suggest hashing the concatenation of site ID + local patient identifier + random generated number so that IDs are not duplicated between collaborators
+encounter,encounter_id,char,"Unique identifier for a single controlled desturation session, or clinical encounter (e.g. hospitalization)"
+encounter,age_at_encounter,int,"Age at time of data collection, calculated by date of birth - current date"
+encounter,encounter_date,date,"The date the encounter took place (YYYY-MM-DD), offset into the future by some random number of days to preserve anonymity. The offset attempts to preserve seasonality, and is consistent for a given patient between encounters (i.e. the encounter date is offset by the same amount in the future for each encounter for a patient who comes in for multiple breathe down encounters)"
+encounter,fitzpatrick,int,"Perceived Fitzpatrick scale, see Hypoxia lab skin color assessment protocol
+
+Values:
+1, Type I
+2, Type II
+3, Type III
+4, Type IV
+5, Type V
+6, Type VI"
+encounter,monk_fingernail,char,"Monk scale measured at fingernail, see Hypoxia lab skin color assessment protocol
+
+Values:
+A
+B
+C
+D
+E
+F
+G
+H
+I"
+encounter,monk_dorsal,char,"Monk scale measured at dorsal finger, see Hypoxia lab skin color assessment protocol"
+encounter,monk_palmar,char,"Monk scale measured at palmar finger, see Hypoxia lab skin color assessment protocol"
+encounter,monk_upper_arm,char,"Monk scale measured at upper arm, see Hypoxia lab skin color assessment protocol"
+encounter,monk_forehead,char,"Monk scale measured at forehead, see Hypoxia lab skin color assessment protocol"
+encounter,finger_l1_device,int,"Device present on L1 finger, OpenOximetery unique device identifier"
+encounter,finger_l2_device,int,"Device present on L2 finger, OpenOximetery unique device identifier"
+encounter,finger_l3_device,int,"Device present on L3 finger, OpenOximetery unique device identifier"
+encounter,finger_l4_device,int,"Device present on L4 finger, OpenOximetery unique device identifier"
+encounter,finger_l5_device,int,"Device present on L5 finger, OpenOximetery unique device identifier"
+encounter,finger_r1_device,int,"Device present on R1 finger, OpenOximetery unique device identifier"
+encounter,finger_r2_device,int,"Device present on R2 finger, OpenOximetery unique device identifier"
+encounter,finger_r3_device,int,"Device present on R3 finger, OpenOximetery unique device identifier"
+encounter,finger_r4_device,int,"Device present on R4 finger, OpenOximetery unique device identifier"
+encounter,finger_r5_device,int,"Device present on R5 finger, OpenOximetery unique device identifier"
+encounter,finger_l1_diameter,int,Unit: mm
+encounter,finger_l2_diameter,int,Unit: mm
+encounter,finger_l3_diameter,int,Unit: mm
+encounter,finger_l4_diameter,int,Unit: mm
+encounter,finger_l5_diameter,int,Unit: mm
+encounter,finger_r1_diameter,int,Unit: mm
+encounter,finger_r2_diameter,int,Unit: mm
+encounter,finger_r3_diameter,int,Unit: mm
+encounter,finger_r4_diameter,int,Unit: mm
+encounter,finger_r5_diameter,int,Unit: mm
+encounter,warming,bool,
+bloodgas,patient_id,char,Uniquely generated patient ID (persists between encounters for recurring patients). We suggest hashing the concatenation of site ID + local patient identifier + random generated number so that IDs are not duplicated between collaborators
+bloodgas,encounter_id,char,"Unique identifier for a single controlled desturation session, or clinical encounter (e.g. hospitalization)"
+bloodgas,type,char,"Values:
+1, ABG
+2, VBG"
+bloodgas,date,date,"The date the encounter took place (YYYY-MM-DD), offset into the future by some random number of days to preserve anonymity. The offset attempts to preserve seasonality, and is consistent for a given patient between encounters (i.e. the encounter date is offset by the same amount in the future for each encounter for a patient who comes in for multiple breathe down encounters)"
+bloodgas,time,time,Time the sample was drawn
+bloodgas,*time_resulted,time,Time of the results
+bloodgas,sample,int,This sample's index in the sequence of ABG draws in a single encounter
+bloodgas,ph,float,"pH, mmHg"
+bloodgas,pco2,float,"CO2, mmHg"
+bloodgas,po2,float,"O2, mmHg"
+bloodgas,so2,float,"Oxygen saturation, percent"
+bloodgas,cohb,float,"Carboxyhemoglobin, percent"
+bloodgas,methb,float,"Methemoglobin, percent"
+bloodgas,thb,float,"Total hemoglobin, g/dL"
+bloodgas,k,float,"Potassium, mmol/L"
+bloodgas,na,float,"Sodium, mmol/L"
+bloodgas,ca,float,"Calcium, mmol/L"
+bloodgas,cl,float,"Chloride, mmol/L"
+bloodgas,glucose,float,"Glucose, mmol/L"
+bloodgas,lactate,float,"Lactate, mmol/L"
+bloodgas,p50,float,mmHg
+bloodgas,cbase,float,"Base excess, mmol/L"
+bloodgas,ETCO2,float,End-tidal CO2
+bloodgas,ETO2,float,End-tidal O2
+bloodgas,ScalcO2,float,Calculated SO2 value (imputed from EtO2)
+bloodgas,RR,float,"Respiratory rate is derived from the ETCO2 wave, assuming that peaks in the CO2 value correspond to the end of the exhalation."
+bloodgas,*draw_site,char,Planned: Site label for where blood gas was drawn from; picklist TBD
+bloodgas,*_hr,int,Heart rate
+bloodgas,*nibp,char,Non-invasive blood pressure
+bloodgas,*nibp_mean,int,Mean non-invasive blood pressure (NIBP MAP)
+bloodgas,*abp,char,Arterial blood pressure
+bloodgas,*abp_mean,int,Mean arterial blood pressure (MAP)
+spectrophotometer,patient_id,char,Uniquely generated patient ID (persists between encounters for recurring patients). We suggest hashing the concatenation of site ID + local patient identifier + random generated number so that IDs are not duplicated between collaborators
+spectrophotometer,encounter_id,char,"Unique identifier for a single controlled desturation session, or clinical encounter (e.g. hospitalization)"
+spectrophotometer,group,char,Anatomic site of measurement.
+spectrophotometer,date,date,"The date the encounter took place (YYYY-MM-DD), offset into the future by some random number of days to preserve anonymity. The offset attempts to preserve seasonality, and is consistent for a given patient between encounters (i.e. the encounter date is offset by the same amount in the future for each encounter for a patient who comes in for multiple breathe down encounters)"
+spectrophotometer,melanin_index,float,
+spectrophotometer,hb_index,float,
+spectrophotometer,hb_so2_index,float,%
+spectrophotometer,hue,char,Munsell hue
+spectrophotometer,value,float,Munsell value
+spectrophotometer,chroma,float,Munsell chroma
+spectrophotometer,lab_l,float,L* value
+spectrophotometer,lab_a,float,a* value
+spectrophotometer,lab_b,float,b* value
+spectrophotometer,400,float,Wavelength reflectance
+spectrophotometer,410,float,Wavelength reflectance
+spectrophotometer,420,float,Wavelength reflectance
+spectrophotometer,430,float,Wavelength reflectance
+spectrophotometer,440,float,Wavelength reflectance
+spectrophotometer,450,float,Wavelength reflectance
+spectrophotometer,460,float,Wavelength reflectance
+spectrophotometer,470,float,Wavelength reflectance
+spectrophotometer,480,float,Wavelength reflectance
+spectrophotometer,490,float,Wavelength reflectance
+spectrophotometer,500,float,Wavelength reflectance
+spectrophotometer,510,float,Wavelength reflectance
+spectrophotometer,520,float,Wavelength reflectance
+spectrophotometer,530,float,Wavelength reflectance
+spectrophotometer,540,float,Wavelength reflectance
+spectrophotometer,550,float,Wavelength reflectance
+spectrophotometer,560,float,Wavelength reflectance
+spectrophotometer,570,float,Wavelength reflectance
+spectrophotometer,580,float,Wavelength reflectance
+spectrophotometer,590,float,Wavelength reflectance
+spectrophotometer,600,float,Wavelength reflectance
+spectrophotometer,610,float,Wavelength reflectance
+spectrophotometer,620,float,Wavelength reflectance
+spectrophotometer,630,float,Wavelength reflectance
+spectrophotometer,640,float,Wavelength reflectance
+spectrophotometer,650,float,Wavelength reflectance
+spectrophotometer,660,float,Wavelength reflectance
+spectrophotometer,670,float,Wavelength reflectance
+spectrophotometer,680,float,Wavelength reflectance
+spectrophotometer,690,float,Wavelength reflectance
+spectrophotometer,700,float,Wavelength reflectance
+pulseoximeter,encounter_id,char,"Unique identifier for a single controlled desturation session, or clinical encounter (e.g. hospitalization)"
+pulseoximeter,device,int,OpenOximetery unique device identifier for the SpO2 observation
+pulseoximeter,probe_location,int,"1, L1 
+2, L2 
+3, L3 
+4, L4 
+5, L5 
+6, R1 
+7, R2 
+8, R3 
+9, R4 
+10, R5"
+pulseoximeter,sample_number,int,This sample's index in the sequence of ABG draws in a single encounter
+pulseoximeter,saturation,int,SpO2 reading at the time of the sample
+pulseoximeter,pi,float,"The perfusion measurement as reported by the device, typically 'perfusion index'."
+device,device_number,int,OpenOx Device ID number
+device,*device_manufacturer,char,Manufacturer
+device,*device_model,char,Oximeter Model
+device,*device_model_version,char,Version number of the model
+device,*device_brand,char,Brand
+device,device_type,int,"1, Handheld
+2, Fingertip
+3, Tabletop"
+device,device_light_type,int,"1, Reflectance 
+2, Transmittance"
+device,*probe_type,char,Planned: type of probe (finger/ear etc)
+device,*probe_manufacturer,char,Probe manufacturer
+device,*probe_model,char,Model number of the probe
+device,*probe_version,char,Version number of the probe
+device,*device_software_ver,char,"Planned: other metadata (algorithm used, software version)"
+device,*device_firmare_ver,char,Firmware version of device
+device,*device_purchase_year,int,Device purchase year
+device,*probe_purchase_year,int,Probe purchase year

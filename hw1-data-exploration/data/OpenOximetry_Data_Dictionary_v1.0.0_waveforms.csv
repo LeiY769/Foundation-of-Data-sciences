@@ -1,0 +1,20 @@
+﻿waveform file,signal name,sampling rate,description,usage notes
+base,ECG-II,100 or 250 Hz,Represents the voltage between 2 ECG electrodes on the patient’s skin. Usually the most reliable source of heart rate.,
+base,ETO2,100 or 250 Hz,Continuous measure of the partial pressure of oxygen at the mouthpiece in mmHg.,
+base,ETCO2,100 or 250 Hz,Continuous measure of the partial pressure of carbon dioxide at the mouthpiece in mmHg.,
+base,RR,100 or 250 Hz,"Respiratory rate is derived from the ETCO2 wave, assuming that peaks in the CO2 value correspond to the end of the exhalation.",
+base,ART,100 or 250 Hz,ART is an invasive measurement of blood pressure taken at the arterial line in mmHg.,
+ppg,RED,86,"Represents the RED (660nm) light attenuated by each of the colors of light used for pulse oximetry. In this archive the PPG signal is recorded as an 86hz 19-bit integer and scaled so that the light finger returns about 32,000 counts.",nb: the sampling rate is likely to change to 250Hz in future releases and will be integrated into the base file
+ppg,IR,86,"Represents the INFRARED (905nm) light attenuated by each of the colors of light used for pulse oximetry. In this archive the PPG signal is recorded as an 86hz 19-bit integer and scaled so that the light finger returns about 32,000 counts.",nb: the sampling rate is likely to change to 250Hz in future releases and will be integrated into the base file
+2hz,Sample,2,Denotes when an ABG sample was drawn during the study,
+2hz,Timestamp,2,Timestamp corresponding to the time the data was captured,
+2hz,ETCO2,2,End-tidal CO2,
+2hz,ETO2,2,End-tidal O2,
+2hz,ScalcO2,2,Calculated SO2 value (imputed from EtO2),
+2hz,RR,2,"Respiratory rate is derived from the ETCO2 wave, assuming that peaks in the CO2 value correspond to the end of the exhalation.",
+2hz,dev60_SpO2,2,SpO2 according to reference machine,
+2hz,dev60_HR,2,Heart rate according to reference machine,
+2hz,dev60_HI,2,Perfusion Index according to reference machine,
+2hz,dev59_SpO2,2,SpO2 according to reference machine,
+2hz,dev59_HR,2,Heart rate according to reference machine,
+2hz,dev59_PI,2,Perfusion Index according to reference machine,
